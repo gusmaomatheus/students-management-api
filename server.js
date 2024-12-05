@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import { auth } from "./middlewares/auth.js";
-import authRoutes from "./routes/authRoutes.js";
-import studentRoutes from "./routes/studentRoutes.js";
+import { auth } from "./src/middlewares/auth.js";
+import authRoutes from "./src/routes/authRoutes.js";
+import studentRoutes from "./src/routes/studentRoutes.js";
 
 dotenv.config();
 
