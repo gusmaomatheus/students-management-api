@@ -58,15 +58,18 @@ export const login = async (request, response) => {
 
     response
       .status(200)
-      .json({ statusCode: 200, statusText: "OK", token: token });
-  } catch (error) {
-    response
-      .status(500)
       .json({
-        statusCode: 500,
-        statusText: "INTERNAL_SERVER_ERROR",
-        message: "Erro ao fazer login.",
-        error: error,
+        statusCode: 200,
+        statusText: "OK",
+        message: "Login realizado com sucesso.",
+        token: token,
       });
+  } catch (error) {
+    response.status(500).json({
+      statusCode: 500,
+      statusText: "INTERNAL_SERVER_ERROR",
+      message: "Erro ao fazer login.",
+      error: error,
+    });
   }
 };
