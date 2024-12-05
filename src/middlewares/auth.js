@@ -6,7 +6,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 export const auth = (request, response, next) => {
-  const token = request.headers.authorszation?.split(" ")[1];
+  const token = request.header("Authorization").split(" ")[1];
 
   if (!token) {
     return response.status(401).json({
