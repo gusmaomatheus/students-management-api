@@ -56,14 +56,12 @@ export const login = async (request, response) => {
       expiresIn: "1h",
     });
 
-    response
-      .status(200)
-      .json({
-        statusCode: 200,
-        statusText: "OK",
-        message: "Login realizado com sucesso.",
-        token: token,
-      });
+    response.status(200).json({
+      statusCode: 200,
+      statusText: "OK",
+      message: "Login realizado com sucesso.",
+      token: token,
+    });
   } catch (error) {
     response.status(500).json({
       statusCode: 500,
