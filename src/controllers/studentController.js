@@ -134,3 +134,21 @@ export const getApprovedStudents = async (_, response) => {
     });
   }
 };
+
+export const getAverages = async (_, response) => {
+  try {
+    const students = await Student.find();
+    const averages = students.map((student) => ({
+      nome: student.nome,
+      media: ((student.nota1 + student.nota2) / 2).toFixed(2),
+    }));
+    response.status(200).json(averages);
+  } catch (error) {
+    response.status(500).json({
+      statusCode: 500,
+      statusText: "INTERNAL_SERVER_ERROR",
+      message: "Erro ao calcular média alunos.",
+      error: error,
+    });
+  }
+};
